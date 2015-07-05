@@ -1,0 +1,15 @@
+% Skin depth program for different materials.
+%Debi Prasad Pattnaik
+%Program plots the intensity of current vector and finds the skin depth.
+mu=1;s=57*10^6;w=50*10^-3; % default values for the program to run. You can use your own values for uour own material parameters
+del=sqrt((mu*w*s)/2);%skin depth of material
+k=2; %scalar to find solution to the 2nd order DE
+K=(1+1i)*k;
+y = linspace(0,3,500);
+i = sqrt(-1);
+Y=2*exp(-k*y).*exp(-i*k*y); 
+realy = real(Y);
+imagy = imag(Y);
+plot(y ,realy, 'R+-');
+grid on;
+legend('Numerical Solution','Exact Solution')
